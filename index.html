@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Генератор идей для постов и сторис</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Unbounded:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0f1f1a;
+      --bg-soft: #173028;
+      --ink: #f3f7f4;
+      --muted: #b7c8bf;
+      --accent: #e8ff6a;
+      --line: rgba(243, 247, 244, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Manrope", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 80% 50% at 10% -10%, #2a5c48 0%, transparent 55%),
+        radial-gradient(ellipse 60% 40% at 100% 20%, #3a4a1a 0%, transparent 45%),
+        linear-gradient(160deg, var(--bg) 0%, #12241e 50%, #0c1814 100%);
+      line-height: 1.55;
+    }
+
+    .page {
+      width: min(880px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 4rem 0 5rem;
+    }
+
+    header {
+      margin-bottom: 3.5rem;
+      animation: rise 0.7s ease both;
+    }
+
+    .brand {
+      font-family: "Unbounded", sans-serif;
+      font-size: clamp(1.9rem, 5vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      max-width: 14ch;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .lead {
+      margin-top: 1rem;
+      color: var(--muted);
+      max-width: 36ch;
+      font-size: 1.05rem;
+    }
+
+    section {
+      padding: 2rem 0;
+      border-top: 1px solid var(--line);
+      animation: rise 0.7s ease both;
+    }
+
+    section:nth-of-type(1) { animation-delay: 0.1s; }
+    section:nth-of-type(2) { animation-delay: 0.2s; }
+    section:nth-of-type(3) { animation-delay: 0.3s; }
+
+    h2 {
+      font-family: "Unbounded", sans-serif;
+      font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 0.55rem;
+      height: 0.55rem;
+      margin-right: 0.65rem;
+      margin-bottom: 0.1rem;
+      background: var(--accent);
+      vertical-align: middle;
+    }
+
+    ol, ul {
+      list-style: none;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    li {
+      padding-left: 1.6rem;
+      position: relative;
+      color: var(--ink);
+    }
+
+    ol li::before {
+      content: counter(item);
+      counter-increment: item;
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    ol {
+      counter-reset: item;
+    }
+
+    ul li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .plan {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .plan-row {
+      display: grid;
+      grid-template-columns: 7.5rem 1fr;
+      gap: 1rem;
+      align-items: start;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .plan-row:last-child {
+      border-bottom: none;
+    }
+
+    .day {
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 0.95rem;
+    }
+
+    .plan-row p {
+      color: var(--ink);
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        padding-top: 2.5rem;
+      }
+
+      .plan-row {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1 class="brand">Генератор идей <span>для постов и сторис</span></h1>
+      <p class="lead">Готовые темы, чтобы быстро наполнить ленту и сторис на неделю вперёд.</p>
+    </header>
+
+    <section>
+      <h2>5 идей постов для экспертов</h2>
+      <ol>
+        <li>«Ошибка, которую я вижу у 9 из 10 клиентов» — разбор с решением.</li>
+        <li>Кейс: «Было → стало» с цифрами и коротким выводом.</li>
+        <li>«Миф vs реальность» в вашей нише — 3 пункта и ваш вердикт.</li>
+        <li>Чек-лист из 7 шагов для новичков по вашей теме.</li>
+        <li>«Вопрос аудитории» — ответьте на самый частый комментарий недели.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>3 идеи сторис на сегодня</h2>
+      <ul>
+        <li>Утренний опрос: «Что вам сложнее всего прямо сейчас?»</li>
+        <li>За кулисами: 15 секунд рабочего процесса или подготовки.</li>
+        <li>Мини-совет дня + призыв сохранить сторис.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Контент-план на неделю</h2>
+      <div class="plan">
+        <div class="plan-row">
+          <span class="day">Пн</span>
+          <p>Пост-разбор ошибки + сторис-опрос по теме поста.</p>
+        </div>
+        <div class="plan-row">
+          <span class="day">Вт</span>
+          <p>Сторис «за кулисами» + напоминание о полезном посте.</p>
+        </div>
+        <div class="plan-row">
+          <span class="day">Ср</span>
+          <p>Пост-кейс «было → стало».</p>
+        </div>
+        <div class="plan-row">
+          <span class="day">Чт</span>
+          <p>Сторис с мини-советом и вопросом в директ.</p>
+        </div>
+        <div class="plan-row">
+          <span class="day">Пт</span>
+          <p>Пост «миф vs реальность».</p>
+        </div>
+        <div class="plan-row">
+          <span class="day">Сб</span>
+          <p>Лёгкий сторис-день: настроение, процесс, сохранение совета.</p>
+        </div>
+        <div class="plan-row">
+          <span class="day">Вс</span>
+          <p>Пост-чек-лист или ответы на вопросы аудитории.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
